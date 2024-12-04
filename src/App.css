@@ -1,0 +1,57 @@
+.App {
+  background: linear-gradient(#900909,#011a18 );
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.Homepage-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 30px;
+  color: white;
+}
+
+.Homepage-text-and-logo {
+display: flex;
+flex-direction: row;
+}
+
+.Homepage-title {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@-webkit-keyframes mover {
+  0% { transform: translateY(10); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(10); }
+  100% { transform: translateY(-10px); }
+}
+
+.Homepage-logo {
+  margin-top: 30px;
+  height: 65px;
+  width: 65px;
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 2s infinite  alternate;
+}
+
+.Homepage-description {
+  margin-top: 0px;
+  padding-left: 200px ;
+  padding-right: 200px;
+  font-style: italic;
+  font-family: 'Faculty Glyphic', sans-serif;
+  font-size: large;
+  font-style: 'italic';
+}

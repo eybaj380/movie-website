@@ -1,0 +1,106 @@
+.card-container {
+  position: fixed;
+  top: 23%;
+  left: 30%;
+  width: 400px;
+  height: 300px;
+  background-color: #340b7a;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  box-shadow: 0 0 50px #a787df; 
+}
+
+.card-content {
+  width: 100%;  
+  color:#90bee7;
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+input::placeholder {
+  width: 100%;
+  color:#90bee7;
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.cancel-button {
+  border-radius: 30px;
+  border: 0;
+  padding: 10px;
+  margin-left: 5px;
+  align-self: flex-start;
+  font-family: 'Faculty Glyphic';
+  font-weight: 400;
+  font-style: normal;
+  background-color: #628392;
+  color: #e3f6ff;
+}
+
+textarea::placeholder {
+  width: 100%;
+  color:#90bee7;
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.submit-button {
+  border-radius: 30px;
+  border: 0;
+  padding: 15px;
+  align-self: flex-start;
+  position: absolute;
+  bottom: 16px;
+  left: 150px;
+  background-color: #90bee7;
+}
+
+.submit-button-text {
+  font-family: Faculty Glyphic;
+  font-weight: 600;
+  color: #011a18;
+  font-style: normal;
+  align-content: center;
+}
+
+.review-card {
+  display: flex;
+  max-width: 400px;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: #d798d2;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #74196d;
+  box-shadow: 0 0 20px #6e1410; 
+}
+
+.review-text {
+  color: #74196d;
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: large;
+}
+
+.delete-button {
+  border-radius: 30px;
+  border: 0;
+  padding: 15px;
+  background-color: #a1de9e;
+}
+
+.delete-button-text {
+  font-family: Faculty Glyphic;
+  font-weight: 600;
+  color: #011a18;
+  font-style: normal;
+  align-content: center;
+}
