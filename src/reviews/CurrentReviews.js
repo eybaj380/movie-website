@@ -5,11 +5,23 @@ import profile_pic from '../assets/images/circle-user-solid.svg';
 
 const CurrentReviews = () => {
   const [showPopup, setShowPopup] = useState(true);
-  const [formData, setFormData] = useState({userName: '', userReview: ''});
+  const [formData, setFormData] = useState({mediaName: '', userName: '', userReview: ''});
   const [reviewCards, setReviewCards] = useState([]);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
+  };
+
+  const [timeStamp, setTimeStamp] = useState(null);
+  const date = new Date();
+  const currentTimeStamp = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear() + ', ' + date.getHours() + ":" + date.getMinutes();
+  const handleTimeStamp = () => {
+    setTimeStamp(currentTimeStamp);
+  };
+
+  const [mediaName, setMediaName] = useState('');
+  const handleMediaName = (event) => {
+    setMediaName(event.target.value);
   };
 
   const [userName, setUserName] = useState('');
@@ -25,7 +37,8 @@ const CurrentReviews = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowPopup(false);
-    setFormData({userName: userName, userReview: userReview});
+    handleTimeStamp();
+    setFormData({timeStamp: timeStamp, mediaName: mediaName, userName: userName, userReview: userReview});
     setReviewCards([...reviewCards, formData]);
     setUserName('');
     setUserReview('');
@@ -42,9 +55,11 @@ const CurrentReviews = () => {
     <div>
       {showPopup && (
         <ReviewPopup 
+          mediaName={mediaName}
           userName={userName} 
           userReview={userReview} 
           togglePopup={togglePopup} 
+          handleMediaName={handleMediaName}
           handleUserName={handleUserName} 
           handleUserReview={handleUserReview}
           handleSubmit={handleSubmit}
@@ -58,6 +73,7 @@ const CurrentReviews = () => {
         {reviewCards.map((reviewCard, index) => (
           <ReviewCard 
             key={index} 
+            currentTimeStamp={currentTimeStamp}
             reviewCard={reviewCard}
             formData={formData}
             handleDelete={handleDelete}
@@ -70,9 +86,11 @@ const CurrentReviews = () => {
 }
 
 export const ReviewPopup = ({ 
+  mediaName,
   userName, 
   userReview, 
   togglePopup, 
+  handleMediaName,
   handleUserName, 
   handleUserReview, 
   handleSubmit 
@@ -83,8 +101,9 @@ export const ReviewPopup = ({
           <div style={{display: 'flex', flexDirection: 'row'}}>
             <input 
               type='text' 
-              value={'Movie'}
+              value={mediaName}
               placeholder='Enter movie/show title'
+              onChange={handleMediaName}
               className='card-content'
               style={{
                 display: 'flex',
@@ -147,9 +166,11 @@ export const ReviewPopup = ({
   );
 };
 
-const ReviewCard = ({ formData, handleDelete, reviewCard }) => {
+const ReviewCard = ({ formData, handleDelete, currentTimeStamp, reviewCard }) => {
   return (
     <div className='review-card'>
+      <div className='review-text'>{`Date & Time: ${currentTimeStamp}`}</div>
+      <div className='review-text'>{`Media name: ${formData.mediaName}`}</div>
       <div className='review-text'>{`User: ${formData.userName}`}</div>
       <div className='review-text'>{`Review: ${formData.userReview}`}</div>
       <div>
